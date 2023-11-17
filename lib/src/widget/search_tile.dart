@@ -6,12 +6,15 @@ import '../provider/picker_provider.dart';
 
 class SearchTile extends StatelessWidget {
    SearchTile({
-    super.key,this.titleAlignment=Alignment.centerLeft,
+    super.key,
+     this.titleAlignment=Alignment.centerLeft,
+     this.suffixIcon,
     required this.dialogTheme,
     required this.controller,
     required this.elements,
   });
 
+  Widget? suffixIcon;
   AlignmentGeometry titleAlignment;
   final DialogThemeData dialogTheme;
   final TextEditingController controller;
@@ -42,18 +45,16 @@ class SearchTile extends StatelessWidget {
         height: dialogTheme.tileHeight,
         child: TextField(
           textInputAction: TextInputAction.search,
-          style: dialogTheme.style
-              .copyWith(fontSize: dialogTheme.style.fontSize ?? 16),
+          style: dialogTheme.style.copyWith(fontSize: dialogTheme.style.fontSize ?? 16),
           controller: controller,
           decoration: InputDecoration(
+            suffixIcon:suffixIcon??const SizedBox.shrink(),
               border: InputBorder.none,
-              contentPadding:
-                  const EdgeInsets.only(left: 15, bottom: 0, top: 0, right: 15),
+              contentPadding: const EdgeInsets.only(left: 15, bottom: 0, top: 0, right: 15),
               hintText: dialogTheme.tilesTheme.searchHint,
               hintStyle: dialogTheme.tilesTheme.searchHintStyle),
           onChanged: ((value) {
             String s = value.toUpperCase();
-
             context.read<SettingsProvider>().countries = elements
                 .where((e) =>
                     e.dialing_code.contains(s) ||

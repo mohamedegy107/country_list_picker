@@ -17,6 +17,7 @@ class SelectionList extends StatelessWidget {
     super.key,
     required this.selectedCountry,
     this.localCountry,
+    this.suffixIcon,
     this.titleAlignment=Alignment.centerLeft,
     this.appBar,
     this.dialogTheme = const DialogThemeData(),
@@ -27,6 +28,7 @@ class SelectionList extends StatelessWidget {
 
   final PreferredSizeWidget? appBar;
   AlignmentGeometry titleAlignment;
+  Widget? suffixIcon;
   final List<Country> elements;
   final Country selectedCountry;
   final Country? localCountry;
@@ -92,6 +94,7 @@ class SelectionList extends StatelessWidget {
                         child: Column(children: [
                           if (dialogTheme.isShowSearchTile)
                             SearchTile(
+                              suffixIcon:suffixIcon,
                               titleAlignment:titleAlignment,
                                 dialogTheme: dialogTheme,
                                 controller: _controller,

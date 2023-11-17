@@ -37,6 +37,7 @@ class CountryListPicker extends StatefulWidget {
     this.localCountry,
     this.language = Languages.English,
     this.textDirection,
+    this.suffixIcon,
     this.displayName = Names.common,
     // Main
     this.isShowCountryName = true,
@@ -188,6 +189,7 @@ class CountryListPicker extends StatefulWidget {
 
   final Names displayName;
   AlignmentGeometry titleAlignment;
+   Widget? suffixIcon;
   @override
   State<CountryListPicker> createState() => _CountryListPickerState();
 }
@@ -322,7 +324,7 @@ class _CountryListPickerState extends State<CountryListPicker> {
                   create: (_) => SettingsProvider(elements: countries),
                   builder: (_, child) {
                     return SelectionList(titleAlignment:widget.titleAlignment,
-                      countries,
+                      countries,suffixIcon:widget.suffixIcon,
                       displayName: widget.displayName,
                       language: widget.language,
                       textDirection: widget.textDirection ?? Directionality.of(context),
