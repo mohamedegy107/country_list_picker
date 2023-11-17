@@ -89,12 +89,12 @@ class SelectionList extends StatelessWidget {
           appBar: appBar,
           body: Container(
               decoration: backgroundImage!=null?BoxDecoration(
+                color: dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface,
                 image: DecorationImage(
                   image: AssetImage(backgroundImage!),
                   fit: BoxFit.cover,
                 ),
               ):null,
-              color: dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface,
               child: Stack(
                 children: <Widget>[
                   CustomScrollView(
