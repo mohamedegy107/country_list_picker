@@ -20,6 +20,7 @@ class SelectionList extends StatelessWidget {
     this.suffixIcon,
     this.titleAlignment=Alignment.centerLeft,
     this.appBar,
+    this.backgroundImage,
     this.paddingTop=0,
     this.divider,
     this.dialogTheme = const DialogThemeData(),
@@ -32,6 +33,7 @@ class SelectionList extends StatelessWidget {
   AlignmentGeometry titleAlignment;
   Widget? suffixIcon;
   double paddingTop;
+  String? backgroundImage;
   Widget? divider;
   final List<Country> elements;
   final Country selectedCountry;
@@ -86,8 +88,13 @@ class SelectionList extends StatelessWidget {
               : null,
           appBar: appBar,
           body: Container(
-              color: dialogTheme.backgroundColor ??
-                  Theme.of(context).colorScheme.surface,
+              decoration: backgroundImage!=null?BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(backgroundImage!),
+                  fit: BoxFit.cover,
+                ),
+              ):null,
+              color: dialogTheme.backgroundColor ?? Theme.of(context).colorScheme.surface,
               child: Stack(
                 children: <Widget>[
                   CustomScrollView(
