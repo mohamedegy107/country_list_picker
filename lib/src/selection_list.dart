@@ -117,14 +117,14 @@ class SelectionList extends StatelessWidget {
                               country: selectedCountry,
                               language: language,
                             ),
-                          (boxes == 0)
-                              ? const SizedBox.shrink()
-                              : Container(
-                                  height: 10,
-                                  color:
-                                      dialogTheme.tilesTheme.backgroundColor ??
-                                          Theme.of(context).focusColor,
-                                )
+                          // (boxes == 0)
+                          //     ? const SizedBox.shrink()
+                          //     : Container(
+                          //         height: 10,
+                          //         color:
+                          //             dialogTheme.tilesTheme.backgroundColor ??
+                          //                 Theme.of(context).focusColor,
+                          //       )
                         ]),
                       ),
                       Selector<SettingsProvider, List<Country>>(
