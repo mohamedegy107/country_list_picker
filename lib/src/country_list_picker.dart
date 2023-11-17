@@ -321,7 +321,7 @@ class _CountryListPickerState extends State<CountryListPicker> {
             builder: (_) => ChangeNotifierProvider<SettingsProvider>(
                   create: (_) => SettingsProvider(elements: countries),
                   builder: (_, child) {
-                    return SelectionList(
+                    return SelectionList(titleAlignment:widget.titleAlignment,
                       countries,
                       displayName: widget.displayName,
                       language: widget.language,
