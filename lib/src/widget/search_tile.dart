@@ -9,12 +9,14 @@ class SearchTile extends StatelessWidget {
     super.key,
      this.titleAlignment=Alignment.centerLeft,
      this.suffixIcon,
+     this.paddingTop=0,
     required this.dialogTheme,
     required this.controller,
     required this.elements,
   });
 
   Widget? suffixIcon;
+  double paddingTop;
   AlignmentGeometry titleAlignment;
   final DialogThemeData dialogTheme;
   final TextEditingController controller;
@@ -50,7 +52,7 @@ class SearchTile extends StatelessWidget {
           decoration: InputDecoration(
             suffixIcon:suffixIcon??const SizedBox.shrink(),
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.only(left: 15, bottom: 0, top: 0, right: 15),
+              contentPadding: EdgeInsets.only(left: 15, bottom: 0, top:paddingTop, right: 15),
               hintText: dialogTheme.tilesTheme.searchHint,
               hintStyle: dialogTheme.tilesTheme.searchHintStyle),
           onChanged: ((value) {
