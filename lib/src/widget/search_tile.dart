@@ -44,28 +44,24 @@ class SearchTile extends StatelessWidget {
                   fontSize: dialogTheme.tilesTheme.style.fontSize ?? 16),
             ),
           )),
-      Container(
-        // color: dialogTheme.backgroundColor,
-        height: dialogTheme.tileHeight,
-        child: TextField(
-          textInputAction: TextInputAction.search,
-          style: dialogTheme.style.copyWith(fontSize: dialogTheme.style.fontSize ?? 16),
-          controller: controller,
-          decoration: InputDecoration(
+      TextField(
+        textInputAction: TextInputAction.search,
+        style: dialogTheme.style.copyWith(fontSize: dialogTheme.style.fontSize ?? 16),
+        controller: controller,
+        decoration: InputDecoration(
             suffixIcon:suffixIcon??const SizedBox.shrink(),
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(left: 15, bottom: 0, top:paddingTop, right: 15),
-              hintText: dialogTheme.tilesTheme.searchHint,
-              hintStyle: dialogTheme.tilesTheme.searchHintStyle),
-          onChanged: ((value) {
-            String s = value.toUpperCase();
-            context.read<SettingsProvider>().countries = elements
-                .where((e) =>
-                    e.dialing_code.contains(s) ||
-                    e.name.common.toUpperCase().startsWith(s))
-                .toList();
-          }),
-        ),
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.only(left: 15, bottom: 0, top:paddingTop, right: 15),
+            hintText: dialogTheme.tilesTheme.searchHint,
+            hintStyle: dialogTheme.tilesTheme.searchHintStyle),
+        onChanged: ((value) {
+          String s = value.toUpperCase();
+          context.read<SettingsProvider>().countries = elements
+              .where((e) =>
+          e.dialing_code.contains(s) ||
+              e.name.common.toUpperCase().startsWith(s))
+              .toList();
+        }),
       ),
       if(divider!=null)divider!
     ]);
