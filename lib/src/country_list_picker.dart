@@ -42,6 +42,7 @@ class CountryListPicker extends StatefulWidget {
     this.displayName = Names.common,
     // Main
     this.isShowCountryName = true,
+    this.divider,
     this.titleAlignment = Alignment.centerLeft,
     this.isShowFlag = true,
     this.flagSize = const Size(40.0, 40.0),
@@ -190,6 +191,7 @@ class CountryListPicker extends StatefulWidget {
 
   final Names displayName;
   AlignmentGeometry titleAlignment;
+   Widget? divider;
    double paddingTop;
    Widget? suffixIcon;
   @override
@@ -327,6 +329,7 @@ class _CountryListPickerState extends State<CountryListPicker> {
                   builder: (_, child) {
                     return SelectionList(titleAlignment:widget.titleAlignment,
                       countries,suffixIcon:widget.suffixIcon,
+                      divider:widget.divider,
                       paddingTop:widget.paddingTop,
                       displayName: widget.displayName,
                       language: widget.language,

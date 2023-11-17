@@ -10,12 +10,14 @@ class SearchTile extends StatelessWidget {
      this.titleAlignment=Alignment.centerLeft,
      this.suffixIcon,
      this.paddingTop=0,
+     this.divider,
     required this.dialogTheme,
     required this.controller,
     required this.elements,
   });
 
   Widget? suffixIcon;
+  Widget? divider;
   double paddingTop;
   AlignmentGeometry titleAlignment;
   final DialogThemeData dialogTheme;
@@ -43,7 +45,7 @@ class SearchTile extends StatelessWidget {
             ),
           )),
       Container(
-        color: dialogTheme.backgroundColor,
+        // color: dialogTheme.backgroundColor,
         height: dialogTheme.tileHeight,
         child: TextField(
           textInputAction: TextInputAction.search,
@@ -65,6 +67,7 @@ class SearchTile extends StatelessWidget {
           }),
         ),
       ),
+      if(divider!=null)divider!
     ]);
   }
 }
