@@ -30,7 +30,7 @@ class CountryListPicker extends StatefulWidget {
   ///    },
   /// ),
   /// ```
-  const CountryListPicker({
+   CountryListPicker({
     super.key,
     // Initial
     this.initialCountry = Countries.Egypt,
@@ -40,6 +40,7 @@ class CountryListPicker extends StatefulWidget {
     this.displayName = Names.common,
     // Main
     this.isShowCountryName = true,
+    this.titleAlignment = Alignment.centerLeft,
     this.isShowFlag = true,
     this.flagSize = const Size(40.0, 40.0),
     this.isShowDiallingCode = true,
@@ -186,6 +187,7 @@ class CountryListPicker extends StatefulWidget {
   final GestureTapCallback? onTap;
 
   final Names displayName;
+  AlignmentGeometry titleAlignment;
   @override
   State<CountryListPicker> createState() => _CountryListPickerState();
 }

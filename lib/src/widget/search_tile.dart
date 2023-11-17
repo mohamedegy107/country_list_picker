@@ -5,13 +5,14 @@ import '../theme/dialog_theme.dart';
 import '../provider/picker_provider.dart';
 
 class SearchTile extends StatelessWidget {
-  const SearchTile({
-    super.key,
+   SearchTile({
+    super.key,this.titleAlignment=Alignment.centerLeft,
     required this.dialogTheme,
     required this.controller,
     required this.elements,
   });
 
+  AlignmentGeometry titleAlignment;
   final DialogThemeData dialogTheme;
   final TextEditingController controller;
   final List<Country> elements;
@@ -28,10 +29,13 @@ class SearchTile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           width: double.infinity,
           height: dialogTheme.tileHeight,
-          child: Text(
-            dialogTheme.tilesTheme.searchTitle,
-            style: dialogTheme.tilesTheme.style.copyWith(
-                fontSize: dialogTheme.tilesTheme.style.fontSize ?? 16),
+          child: Align(
+            alignment:titleAlignment,
+            child: Text(
+              dialogTheme.tilesTheme.searchTitle,
+              style: dialogTheme.tilesTheme.style.copyWith(
+                  fontSize: dialogTheme.tilesTheme.style.fontSize ?? 16),
+            ),
           )),
       Container(
         color: dialogTheme.backgroundColor,
