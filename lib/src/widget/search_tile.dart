@@ -17,7 +17,7 @@ class SearchTile extends StatelessWidget {
   });
 
   Widget? suffixIcon;
-  Widget? divider;
+  Widget? divider;// for divider
   double paddingTop;
   AlignmentGeometry titleAlignment;
   final DialogThemeData dialogTheme;
